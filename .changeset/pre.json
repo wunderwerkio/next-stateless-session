@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "next-stateless-session": "0.0.0"
+  },
+  "changesets": [
+    "gentle-gifts-impress"
+  ]
+}
