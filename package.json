@@ -1,5 +1,5 @@
 {
-  "name": "next-stateless-session",
+  "name": "@wunderwerk/next-stateless-session",
   "description": "Stateless session management for Next.js via encrypted cookies and middleware token refresh support.",
   "version": "0.1.0",
   "type": "module",
@@ -56,6 +56,10 @@
     "turbo": "^1.11.3",
     "typescript": "^5.3.3"
   },
+  "files": [
+    "CHANGELOG.md",
+    "dist/*"
+  ],
   "ava": {
     "files": [
       "src/**/*.test.ts"
