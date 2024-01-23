@@ -22,14 +22,6 @@ jobs:
       - name: Install nix
         uses: nixbuild/nix-quick-install-action@v25
 
-      - uses: actions/cache@v3
-        name: Setup nix cache
-        with:
-          path: /nix/store
-          key: ${{ runner.os }}-nix-store-${{ hashFiles('**/flake.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-nix-store-
-
       - name: Get pnpm store directory
         id: pnpm-cache
         run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
