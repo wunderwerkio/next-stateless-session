@@ -1,7 +1,7 @@
 {
   "name": "next-stateless-session",
   "description": "Stateless session management for Next.js via encrypted cookies and middleware token refresh support.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "keywords": [
     "nextjs",
