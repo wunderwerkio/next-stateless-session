@@ -58,9 +58,27 @@ export const createSessionManager = (
    *
    * @param session - The session object to save.
    * @param res - Optional Next.js response object.
+   * @param cookieOptionsOverride - Optional cookie options override options.
    */
-  async function saveSession(session: NextSession, res?: Res) {
-    await saveSessionCookie(session, sessionCookieOptions, res);
+  async function saveSession(
+    session: NextSession,
+    res?: Res,
+    cookieOptionsOverride?: Partial<NextSessionCookieOptions["cookieOptions"]>,
+  ) {
+    let opts = sessionCookieOptions;
+
+    // Merge cookie options if override is set.
+    if (cookieOptionsOverride) {
+      opts = {
+        ...sessionCookieOptions,
+        cookieOptions: {
+          ...sessionCookieOptions.cookieOptions,
+          ...cookieOptionsOverride,
+        },
+      } satisfies NextSessionCookieOptions;
+    }
+
+    await saveSessionCookie(session, opts, res);
   }
 
   /**
@@ -71,12 +89,27 @@ export const createSessionManager = (
    *
    * @param session - The session object to set.
    * @param req - Next.js request object.
+   * @param cookieOptionsOverride - Optional cookie options override options.
    */
-  async function setSessionOnNextRequest(session: NextSession, req: Req) {
-    const cookieValue = await createSessionCookieValue(
-      session,
-      sessionCookieOptions,
-    );
+  async function setSessionOnNextRequest(
+    session: NextSession,
+    req: Req,
+    cookieOptionsOverride?: Partial<NextSessionCookieOptions["cookieOptions"]>,
+  ) {
+    let opts = sessionCookieOptions;
+
+    // Merge cookie options if override is set.
+    if (cookieOptionsOverride) {
+      opts = {
+        ...sessionCookieOptions,
+        cookieOptions: {
+          ...sessionCookieOptions.cookieOptions,
+          ...cookieOptionsOverride,
+        },
+      } satisfies NextSessionCookieOptions;
+    }
+
+    const cookieValue = await createSessionCookieValue(session, opts);
 
     req.cookies.set(sessionCookieOptions.cookieName, cookieValue);
   }
