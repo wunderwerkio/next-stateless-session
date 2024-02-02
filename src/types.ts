@@ -1,8 +1,18 @@
+import { NextSessionCookieOptions } from "./cookie/types.js";
+
 export interface NextSessionManager {
   getSession: (req?: Req) => Promise<NextSession>;
-  saveSession: (session: NextSession, res?: Res) => Promise<void>;
+  saveSession: (
+    session: NextSession,
+    res?: Res,
+    cookieOptionsOverride?: Partial<NextSessionCookieOptions["cookieOptions"]>,
+  ) => Promise<void>;
   deleteSession: (res?: Res) => void;
-  setSessionOnNextRequest: (session: NextSession, req: Req) => Promise<void>;
+  setSessionOnNextRequest: (
+    session: NextSession,
+    req: Req,
+    cookieOptionsOverride?: Partial<NextSessionCookieOptions["cookieOptions"]>,
+  ) => Promise<void>;
   deleteSessionOnNextRequest: (req: Req) => void;
 }
 
