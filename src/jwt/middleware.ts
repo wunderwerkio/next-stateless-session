@@ -34,6 +34,7 @@ export const withNextSessionJwtTokenRefresh =
 
         if (result instanceof Error) {
           console.log("Refresh failed, deleting cookie");
+          console.error(result);
           refreshError = result;
           sessionManager.deleteSessionOnNextRequest(req);
         } else {
