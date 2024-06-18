@@ -1,5 +1,11 @@
 # next-stateless-session
 
+## 0.1.2
+
+### Patch Changes
+
+- [`5b2a3c0`](https://github.com/wunderwerkio/next-stateless-session/commit/5b2a3c0e5069aa9bb4f8ab2116543b61952713ba) Thanks [@chfoidl](https://github.com/chfoidl)! - Add log
+
 ## 0.1.1
 
 ### Patch Changes
