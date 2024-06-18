@@ -1,4 +1,4 @@
-import test from "ava";
+import { expect, test } from "vitest";
 import { withNextSessionJwtTokenRefresh } from "./middleware.js";
 import {
   AuthenticatedSession,
@@ -7,7 +7,7 @@ import {
 } from "../types.js";
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server.js";
 
-test("test", async (t) => {
+test("test", async () => {
   const req = { _fakeReq: true } as unknown as NextRequest;
   const res = {} as unknown as NextResponse;
   const event = {} as unknown as NextFetchEvent;
@@ -18,7 +18,7 @@ test("test", async (t) => {
 
   const sessionManager: NextSessionManager = {
     getSession: async (_req) => {
-      t.deepEqual(req, _req);
+      expect(req).deep.equals(_req);
 
       return session;
     },
@@ -33,8 +33,8 @@ test("test", async (t) => {
   };
 
   const next = (_req: NextRequest, _event: NextFetchEvent) => {
-    t.deepEqual(req, _req);
-    t.deepEqual(event, _event);
+    expect(req).deep.equals(_req);
+    expect(event).deep.equals(_event);
 
     return res;
   };
