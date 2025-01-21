@@ -7,7 +7,7 @@ export interface NextSessionManager {
     res?: Res,
     cookieOptionsOverride?: Partial<NextSessionCookieOptions["cookieOptions"]>,
   ) => Promise<void>;
-  deleteSession: (res?: Res) => void;
+  deleteSession: (res?: Res) => Promise<void>;
   setSessionOnNextRequest: (
     session: NextSession,
     req: Req,

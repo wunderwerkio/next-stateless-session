@@ -9,7 +9,7 @@ import { NextSessionCookieOptions, Res } from "./types.js";
  * @param options - Cookie options.
  * @param res - Optional response object.
  */
-export function deleteSessionCookie(
+export async function deleteSessionCookie(
   options: NextSessionCookieOptions,
   res?: Res,
 ) {
@@ -17,7 +17,7 @@ export function deleteSessionCookie(
     return deleteOnResponse(res, options);
   }
 
-  return deleteViaFunction(options);
+  return await deleteViaFunction(options);
 }
 
 /**
@@ -39,8 +39,8 @@ function deleteOnResponse(res: Res, options: NextSessionCookieOptions) {
  * @see https://nextjs.org/docs/app/api-reference/functions/cookies#deleting-cookies
  * @param options - Cookie options.
  */
-function deleteViaFunction(options: NextSessionCookieOptions) {
+async function deleteViaFunction(options: NextSessionCookieOptions) {
   const cookiesFunc = options.nextCookiesFunc ?? cookies;
 
-  cookiesFunc().delete(options.cookieName);
+  (await cookiesFunc()).delete(options.cookieName);
 }

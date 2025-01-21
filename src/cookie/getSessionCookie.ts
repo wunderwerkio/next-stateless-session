@@ -21,7 +21,7 @@ export async function getSessionCookie<TPayload>(
 ): Promise<TPayload | null> {
   const sealedPayload = req
     ? getFromRequest(req, options)
-    : getViaFunction(options);
+    : await getViaFunction(options);
   if (!sealedPayload) {
     return null;
   }
@@ -51,10 +51,10 @@ function getFromRequest(req: Req, options: NextSessionCookieOptions) {
  *
  * @param options - Cookie options.
  */
-function getViaFunction(options: NextSessionCookieOptions) {
+async function getViaFunction(options: NextSessionCookieOptions) {
   const cookiesFunc = options.nextCookiesFunc ?? cookies;
 
-  const cookie = cookiesFunc().get(options.cookieName);
+  const cookie = (await cookiesFunc()).get(options.cookieName);
   if (!cookie) {
     return null;
   }

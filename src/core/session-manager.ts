@@ -124,8 +124,8 @@ export const createSessionManager = (
    *
    * @param res - Optional Next.js response object.
    */
-  function deleteSession(res?: Res) {
-    deleteSessionCookie(sessionCookieOptions, res);
+  async function deleteSession(res?: Res) {
+    await deleteSessionCookie(sessionCookieOptions, res);
   }
 
   /**
