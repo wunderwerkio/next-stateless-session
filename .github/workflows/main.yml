@@ -37,10 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # - name: Lint
-      #   run: pnpm exec turbo lint
-      #   env:
-      #     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      - name: Lint
+        run: pnpm exec turbo lint
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
       - name: Typecheck
         run: pnpm exec turbo typecheck

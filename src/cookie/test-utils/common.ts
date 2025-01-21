@@ -7,6 +7,12 @@ export const testOptions: NextSessionCookieOptions = {
   password: "WKYWgkjHWtgW7173a4Vt1Jfgk83kAmhn",
 };
 
+/**
+ * Create a request with a cookie set.
+ *
+ * @param name - The name of the cookie.
+ * @param value - The value of the cookie.
+ */
 export const createRequestWithCookie = (name: string, value: string) => {
   const request = new Request("http://localhost");
 

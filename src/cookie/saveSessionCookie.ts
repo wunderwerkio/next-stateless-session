@@ -23,7 +23,7 @@ export async function saveSessionCookie<TPayload>(
     return saveOnResponse(sealedValue, res, options);
   }
 
-  return saveViaFunction(sealedValue, options);
+  return await saveViaFunction(sealedValue, options);
 }
 
 /**
@@ -69,8 +69,11 @@ function saveOnResponse(
  * @param value - Cookie value.
  * @param options - Cookie options.
  */
-function saveViaFunction(value: string, options: NextSessionCookieOptions) {
+async function saveViaFunction(
+  value: string,
+  options: NextSessionCookieOptions,
+) {
   const cookiesFunc = options.nextCookiesFunc ?? cookies;
 
-  cookiesFunc().set(options.cookieName, value, options.cookieOptions);
+  (await cookiesFunc()).set(options.cookieName, value, options.cookieOptions);
 }

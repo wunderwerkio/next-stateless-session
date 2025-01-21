@@ -25,7 +25,7 @@ test("test", async () => {
     deleteSessionOnNextRequest: () => {},
     setSessionOnNextRequest: async () => {},
     saveSession: async () => {},
-    deleteSession: () => {},
+    deleteSession: async () => {},
   };
 
   const updateSession = async (session: AuthenticatedSession) => {

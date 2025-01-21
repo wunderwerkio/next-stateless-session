@@ -5,6 +5,11 @@ const secret = new TextEncoder().encode(
 );
 const alg = "HS256";
 
+/**
+ * Create a JWT with the given expiration time.
+ *
+ * @param expires - The expiration time of the JWT.
+ */
 export async function createJwt(expires: number) {
   return await new SignJWT({ test: true })
     .setProtectedHeader({ alg })

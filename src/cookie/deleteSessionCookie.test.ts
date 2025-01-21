@@ -16,10 +16,10 @@ test("res - delete session cookie", async () => {
 test("func - delete session cookie", async () => {
   expect.assertions(1);
 
-  deleteSessionCookie({
+  await deleteSessionCookie({
     ...testOptions,
     // @ts-ignore
-    nextCookiesFunc: () => ({
+    nextCookiesFunc: async () => ({
       delete: (name) => {
         expect(name).equals(testOptions.cookieName);
       },

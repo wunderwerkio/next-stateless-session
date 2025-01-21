@@ -50,7 +50,7 @@ test("func - handle malformed session cookie", async () => {
     getSessionCookie({
       ...testOptions,
       // @ts-ignore
-      nextCookiesFunc: () => ({
+      nextCookiesFunc: async () => ({
         get: (name) => ({ name, value: "malformed-string" }),
       }),
     }),
@@ -64,7 +64,7 @@ test("func - get value from session cookie", async () => {
   const value = await getSessionCookie({
     ...testOptions,
     // @ts-ignore
-    nextCookiesFunc: () => ({
+    nextCookiesFunc: async () => ({
       get: (name) => ({ name, value: cookieValue }),
     }),
   });
