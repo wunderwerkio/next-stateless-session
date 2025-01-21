@@ -1,5 +1,14 @@
 # next-stateless-session
 
+## 1.0.0
+
+### Major Changes
+
+- [#9](https://github.com/wunderwerkio/next-stateless-session/pull/9) [`bed6767`](https://github.com/wunderwerkio/next-stateless-session/commit/bed6767a232d3f81859a0df7b6b82b6c60c1f7ea) Thanks [@chfoidl](https://github.com/chfoidl)! - Support Next.js 15
+
+  BREAKING CHANGE: calls to the `cookies()` function are now async, thus making
+  the `deleteSession()` method of the session manager async as well.
+
 ## 0.1.2
 
 ### Patch Changes
