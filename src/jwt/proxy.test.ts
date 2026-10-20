@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { withNextSessionJwtTokenRefresh } from "./middleware.js";
+import { withNextSessionJwtTokenRefresh } from "./proxy.js";
 import {
   AuthenticatedSession,
   NextSession,

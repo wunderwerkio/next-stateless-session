@@ -13,7 +13,7 @@ export type UpdateSessionCallback = (
   session: AuthenticatedSession,
 ) => Promise<AuthenticatedSession | Error>;
 
-export type MiddlewareOptions = {
+export type ProxyOptions = {
   sessionManager: NextSessionManager;
   updateSession: UpdateSessionCallback;
 };
