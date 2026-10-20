@@ -1,5 +1,11 @@
 # next-stateless-session
 
+## 1.1.0
+
+### Minor Changes
+
+- [#12](https://github.com/wunderwerkio/next-stateless-session/pull/12) [`39107cc`](https://github.com/wunderwerkio/next-stateless-session/commit/39107ccc25bd22802d0521f5c47382940d408b77) Thanks [@chfoidl](https://github.com/chfoidl)! - Support Next 15 and 16
+
 ## 1.0.0
 
 ### Major Changes
