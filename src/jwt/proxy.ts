@@ -1,4 +1,6 @@
 import { ResponseCookies } from "@edge-runtime/cookies";
+// `NextProxy` only exists since Next 16, where it aliases `NextMiddleware`.
+// Keep `NextMiddleware` to stay compatible with Next 13.5 - 15.
 import type {
   NextFetchEvent,
   NextMiddleware,
@@ -6,16 +8,16 @@ import type {
 } from "next/server.js";
 
 import { isTokenExpired } from "./utils.js";
-import type { MiddlewareOptions } from "./types.js";
+import type { ProxyOptions } from "./types.js";
 import { AuthenticatedSession } from "../types.js";
 
 /**
- * NextJS Middleware higher-order function that adds session handling to all routes.
+ * Next.js proxy (middleware before Next 16) higher-order function that adds session handling to all routes.
  *
  * @param options - Configuration options.
  */
 export const withNextSessionJwtTokenRefresh =
-  (options: MiddlewareOptions) => (next: NextMiddleware) => {
+  (options: ProxyOptions) => (next: NextMiddleware) => {
     return async (req: NextRequest, event: NextFetchEvent) => {
       const { sessionManager, updateSession } = options;
 

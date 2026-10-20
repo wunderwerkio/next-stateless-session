@@ -85,7 +85,7 @@ export const createSessionManager = (
    * Sets the given session on the given req object.
    *
    * This is useful if you need to update the session for
-   * the current request (use in middleware).
+   * the current request (use in proxy).
    *
    * @param session - The session object to set.
    * @param req - Next.js request object.
@@ -132,7 +132,7 @@ export const createSessionManager = (
    * Deletes the session on the given req object.
    *
    * This is useful if you need to update the session for
-   * the current request (use in middleware).
+   * the current request (use in proxy).
    *
    * @param req - Next.js request object.
    */

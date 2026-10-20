@@ -1,1 +1,1 @@
-export { withNextSessionJwtTokenRefresh } from "./middleware.js";
+export { withNextSessionJwtTokenRefresh } from "./proxy.js";
