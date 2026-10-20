@@ -1,7 +1,7 @@
 {
   "name": "@wunderwerk/next-stateless-session",
   "description": "Stateless session management for Next.js via encrypted cookies and proxy (middleware) token refresh support.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "keywords": [
     "nextjs",
